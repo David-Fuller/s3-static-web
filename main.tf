@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "site_bucket" {
   bucket = "dpf-mybucket" 
+# Use acl to make bucket public read
 # acl = "public-read"
   website {
     index_document = "index.html"
