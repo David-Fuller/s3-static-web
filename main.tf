@@ -26,8 +26,14 @@ resource "aws_s3_bucket_policy" "site_bucket" {
 }
 POLICY
 }
-
-  
+resource "aws_s3_bucket_object" "object" {
+  bucket = "${aws_s3_bucket.site_bucket.id}"
+  key    = "index.html"
+  source = "/mnt/c/S3/index.html"
+  content_type = "text/html"
+#  etag   = "${md5(file("/mnt/c/S3/index.html"))}"
+}
+ 
 output "bucketdomainname" {
   value = "${aws_s3_bucket.site_bucket.bucket_domain_name}"
 }
