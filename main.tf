@@ -1,6 +1,5 @@
 resource "aws_s3_bucket" "site_bucket" {
-  bucket = "dpf-mybucket" 
-# Use acl to make bucket public read
+  bucket = "dpf-mybucket"
 # acl = "public-read"
   website {
     index_document = "index.html"
@@ -32,7 +31,6 @@ resource "aws_s3_bucket_object" "object" {
   key    = "index.html"
   source = "/mnt/c/S3/index.html"
   content_type = "text/html"
-#  etag   = "${md5(file("/mnt/c/S3/index.html"))}"
 }
  
 output "bucketdomainname" {
